@@ -38,6 +38,7 @@ if ingredients_list:
         #pd_df = my_dataframe.to_pandas()
         #st.dataframe(pd_df)
         #st.stop()
+         st.write(smoothiefroot_response.text)
 
     #st.write(ingredients_string)
 
