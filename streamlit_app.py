@@ -12,9 +12,6 @@ st.write("Choose the fruits you want in your smoothie!")
 name_on_order = st.text_input('Name on Smoothie:')
 st.write('The name on your Smoothie will be:', name_on_order)
 
-# Checkbox to mark order as filled
-order_filled = st.checkbox("Mark order as filled?")
-
 # Connect to Snowflake
 cnx = st.connection("Snowflake")
 session = cnx.session()
@@ -69,8 +66,8 @@ if ingredients_list:
 
     # Submit order to Snowflake
     my_insert_stmt = f"""
-        INSERT INTO smoothies.public.orders (ingredients, name_on_order, order_filled)
-        VALUES ('{ingredients_string}', '{name_on_order}', {str(order_filled).upper()})
+        INSERT INTO smoothies.public.orders (ingredients, name_on_order)
+        VALUES ('{ingredients_string}', '{name_on_order}')
     """
 
     if st.button('Submit Order'):
