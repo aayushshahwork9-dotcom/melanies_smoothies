@@ -31,16 +31,10 @@ if ingredients_list:
         ingredients_string += fruit_chosen + ' '
         search_on = pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
 
-        st.write('The search value for', fruit_chosen, 'is', search_on, '.')
+        #st.write('The search value for', fruit_chosen, 'is', search_on, '.')
         st.subheader(f"{fruit_chosen} Nutrition Information")
-
-        # Fetch nutrition info from API
-        response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")
-        if response.status_code == 200:
-            nutrition = response.json().get("nutrition", {})
-            st.dataframe(pd.DataFrame([nutrition]))
-        else:
-            st.error(f"Nutrition info not found for {fruit_chosen}.")
+        smoothiefroot_response = request.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")
+        sf_df = st.dataframe(data=smoothiefroot_reposne.json(), use_container_width=True;
 
     # Prepare and submit order
     ingredients_string = ingredients_string.strip()
