@@ -36,8 +36,8 @@ if ingredients_list:
         #sf_df=st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
         #st.stop()
         #pd_df = my_dataframe.to_pandas()
-        st.dataframe(pd_df)
-        st.stop()
+        #st.dataframe(pd_df)
+        #st.stop()
 
     #st.write(ingredients_string)
 
