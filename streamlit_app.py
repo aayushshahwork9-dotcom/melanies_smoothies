@@ -54,7 +54,10 @@ if ingredients_list:
         response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")
 
         if response.status_code == 200:
-            st.dataframe(pd.DataFrame(response.json()))
+            data = response.json()
+            if isinstance(data, dict):
+                data = [data]
+            st.dataframe(pd.DataFrame(data))
         else:
             st.error("error: Not found")
 
