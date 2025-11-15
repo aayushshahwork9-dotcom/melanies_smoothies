@@ -46,6 +46,7 @@ if ingredients_list:
         except IndexError:
             search_on = fruit_chosen  # fallback if not found
 
+        # Display the sentence cleanly
         st.write(f"The search value for {fruit_chosen} is {search_on}.")
 
         # Fetch nutrition info from API
@@ -55,7 +56,7 @@ if ingredients_list:
         if response.status_code == 200:
             st.dataframe(pd.DataFrame(response.json()))
         else:
-            st.error("Nutrition info not found for this fruit.")
+            st.error("error: Not found")
 
     # Submit order to Snowflake
     my_insert_stmt = f"""
